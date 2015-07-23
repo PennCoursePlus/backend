@@ -15,7 +15,8 @@ pcr_token = config.pcr_token
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    names = [("Fifi Yeung", "https://github.com/feefles"), ("Jonathan Dubin", "https://github.com/jondubin")]
+    return render_template('index.html', names=names)
 
 
 from datetime import timedelta
@@ -74,7 +75,7 @@ def catchall(path):
     r = requests.get(url)
     return r.text
 
-    
+
 @app.route('/scheduler')
 @crossdomain(origin='*')
 def schedule():
