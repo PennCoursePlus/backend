@@ -42,8 +42,8 @@
     <hr>
         {% set first = names|random %}
         {% set second = names|reject('sameas', first)|first %}
-    <p>Created at PennApps Spring 2014 by <a href="{{first[1]}}">{{ first[0] }}</a>
-       and <a href="{{second[1]}}">{{ second[0] }}</a>.
+    <p>Created at PennApps Spring 2014 by <a href="{{first[1]}}">{{first[0]}}</a>
+       and <a href="{{second[1]}}">{{second[0]}}</a>.
       <br> Check out the code on <a href="https://github.com/PennCoursePlus">GitHub</a>.</p>                
     </div>
   </div>
