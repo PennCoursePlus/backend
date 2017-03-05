@@ -6,6 +6,10 @@ from penn import registrar
 import json
 import config
 
+from datetime import timedelta
+from flask import make_response, request, current_app
+from functools import update_wrapper
+
 app = Flask(__name__)
 
 requests_cache.install_cache('cache')
@@ -13,14 +17,10 @@ username = config.pit_username
 password = config.pit_password
 pcr_token = config.pcr_token
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-from datetime import timedelta
-from flask import make_response, request, current_app
-from functools import update_wrapper
 
 
 def crossdomain(origin=None, methods=None, headers=None,
@@ -74,7 +74,7 @@ def catchall(path):
     r = requests.get(url)
     return r.text
 
-    
+
 @app.route('/scheduler')
 @crossdomain(origin='*')
 def schedule():
